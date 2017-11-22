@@ -30,8 +30,7 @@ document.write(lat);
 		type: 'GET',
 		dataType: 'jsonp',
 		cache: true,
-		url: 'https://api.instagram.com/v1/locations/search?lat=' 
-      + lat + '&lng=' + lng + '&distance=100&access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa'
+		url: 'https://api.instagram.com/v1/locations/search?lat=12.614550&lng=99.954041&distance=100&access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa'
 	}).done(function(data) {
 		// ขั้นตอนต่อไป
 
