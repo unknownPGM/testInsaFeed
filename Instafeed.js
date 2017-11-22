@@ -13,19 +13,19 @@
 
 function getIgPhoto(lat, lng) {
 document.write(lat);
-	// ‡µ√’¬¡µ—«·ª≈·≈– select element ∑’ËµÈÕß„™È√Õ‰«È
+	// ‡πÄ‡∏ï‡∏£‡∏µ‡∏¢‡∏°‡∏ï‡∏±‡∏ß‡πÅ‡∏õ‡∏•‡πÅ‡∏•‡∏∞ select element ‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡πÉ‡∏ä‡πâ‡∏£‡∏≠‡πÑ‡∏ß‡πâ
 	var locationURLList = [],
 		imageObjList = [],
 		imageList = [],
 		infoBox = $('#ig-info'),
 		imgDiv = $('.ig-div');
  
-	// ‡Õ“√Ÿª‡¥‘¡ÕÕ° ·≈–∫Õ° user «Ë“°”≈—ß‚À≈¥√Ÿªπ–
+	// ‡πÄ‡∏≠‡∏≤‡∏£‡∏π‡∏õ‡πÄ‡∏î‡∏¥‡∏°‡∏≠‡∏≠‡∏Å ‡πÅ‡∏•‡∏∞‡∏ö‡∏≠‡∏Å user ‡∏ß‡πà‡∏≤‡∏Å‡∏≥‡∏•‡∏±‡∏á‡πÇ‡∏´‡∏•‡∏î‡∏£‡∏π‡∏õ‡∏ô‡∏∞
 	imgDiv.remove();
 	infoBox.show().removeClass('bg-danger').addClass('bg-info').text("Loading...");
  
 	// Make AJAX call
-	       // ‡æ◊ËÕ®–‰¥È array ¢Õß location-id
+	       // ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏à‡∏∞‡πÑ‡∏î‡πâ array ‡∏Ç‡∏≠‡∏á location-id
 	$.ajax({
 		type: 'GET',
 		dataType: 'jsonp',
@@ -33,31 +33,31 @@ document.write(lat);
 		url: 'https://api.instagram.com/v1/locations/search?lat=' 
       + lat + '&lng=' + lng + '&distance=100&access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa'
 	}).done(function(data) {
-		// ¢—ÈπµÕπµËÕ‰ª
+		// ‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡∏≠‡∏ô‡∏ï‡πà‡∏≠‡πÑ‡∏õ
 
 	}).done(function(data) {
  
-		// ‡¡◊ËÕ∑ÿ°Õ¬Ë“ß‡ √Á® ‘Èπ loop ºË“π·µË≈– item „π array ‡æ◊ËÕ √È“ß‡ªÁπ url 
-  // ∑’Ë‡√“µÈÕß call „π§√—Èß∑’Ë Õß
+		// ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ó‡∏∏‡∏Å‡∏≠‡∏¢‡πà‡∏≤‡∏á‡πÄ‡∏™‡∏£‡πá‡∏à‡∏™‡∏¥‡πâ‡∏ô loop ‡∏ú‡πà‡∏≤‡∏ô‡πÅ‡∏ï‡πà‡∏•‡∏∞ item ‡πÉ‡∏ô array ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏™‡∏£‡πâ‡∏≤‡∏á‡πÄ‡∏õ‡πá‡∏ô url 
+  // ‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏≤‡∏ï‡πâ‡∏≠‡∏á call ‡πÉ‡∏ô‡∏Ñ‡∏£‡∏±‡πâ‡∏á‡∏ó‡∏µ‡πà‡∏™‡∏≠‡∏á
 		for (var i = 0; i < data.data.length; i++) {
-		// ‡µ√’¬¡ url ®“° location_id
+		// ‡πÄ‡∏ï‡∏£‡∏µ‡∏¢‡∏° url ‡∏à‡∏≤‡∏Å location_id
 			var targetURL = 'https://api.instagram.com/v1/locations/' 
        + data.data[i].id + '/media/recent?access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa';
 			locationURLList.push(targetURL);
 		}
  
-		// ‡π◊ËÕß®“°∫“ß∑’√Õ∫Ê æ‘°—¥Àπ÷ËßÊ ¡’À≈“¬ location ¡“° ®÷ß‡Õ“¡“·§Ë 10 Õ—π 
-  // ·µË∂È“„§√µÈÕß°“√∑—ÈßÀ¡¥ “¡“√∂µ—¥∫√√∑—¥π’È∑‘Èß‰¥È§√—∫
+		// ‡πÄ‡∏ô‡∏∑‡πà‡∏≠‡∏á‡∏à‡∏≤‡∏Å‡∏ö‡∏≤‡∏á‡∏ó‡∏µ‡∏£‡∏≠‡∏ö‡πÜ ‡∏û‡∏¥‡∏Å‡∏±‡∏î‡∏´‡∏ô‡∏∂‡πà‡∏á‡πÜ ‡∏°‡∏µ‡∏´‡∏•‡∏≤‡∏¢ location ‡∏°‡∏≤‡∏Å ‡∏à‡∏∂‡∏á‡πÄ‡∏≠‡∏≤‡∏°‡∏≤‡πÅ‡∏Ñ‡πà 10 ‡∏≠‡∏±‡∏ô 
+  // ‡πÅ‡∏ï‡πà‡∏ñ‡πâ‡∏≤‡πÉ‡∏Ñ‡∏£‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏ï‡∏±‡∏î‡∏ö‡∏£‡∏£‡∏ó‡∏±‡∏î‡∏ô‡∏µ‡πâ‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏î‡πâ‡∏Ñ‡∏£‡∏±‡∏ö
 		locationURLList = locationURLList.slice(0, 10);
  
 	}).done(function(){
  
-		// ¢—ÈπµÕπµËÕ‰ª
+		// ‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡∏≠‡∏ô‡∏ï‡πà‡∏≠‡πÑ‡∏õ
 	
 
 	}).done(function(){
  
-		// ‡√’¬° AKAX §√—Èß∑’Ë Õß ¥È«¬·µË≈– url „π array
+		// ‡πÄ‡∏£‡∏µ‡∏¢‡∏Å AKAX ‡∏Ñ‡∏£‡∏±‡πâ‡∏á‡∏ó‡∏µ‡πà‡∏™‡∏≠‡∏á ‡∏î‡πâ‡∏ß‡∏¢‡πÅ‡∏ï‡πà‡∏•‡∏∞ url ‡πÉ‡∏ô array
 		$.when.apply($, locationURLList.map(function(url) {
  
 			return $.ajax({
@@ -69,29 +69,29 @@ document.write(lat);
  
 		})).done(function(){
  
-			 // ´ËÕπ·∂∫∑’Ë‡Õ“‰«È∫Õ°«Ë“ loading...
+			 // ‡∏ã‡πà‡∏≠‡∏ô‡πÅ‡∏ñ‡∏ö‡∏ó‡∏µ‡πà‡πÄ‡∏≠‡∏≤‡πÑ‡∏ß‡πâ‡∏ö‡∏≠‡∏Å‡∏ß‡πà‡∏≤ loading...
 			 infoBox.hide();
-			 // loop ºË“π object ∑’Ë response °≈—∫¡“·≈È«‡Õ“ image object π—Èπ‰ª concat 
-    // ‡¢È“‰ª„π imageObjList ´÷Ëß‡ªÁπ array ¢Õß image object
+			 // loop ‡∏ú‡πà‡∏≤‡∏ô object ‡∏ó‡∏µ‡πà response ‡∏Å‡∏•‡∏±‡∏ö‡∏°‡∏≤‡πÅ‡∏•‡πâ‡∏ß‡πÄ‡∏≠‡∏≤ image object ‡∏ô‡∏±‡πâ‡∏ô‡πÑ‡∏õ concat 
+    // ‡πÄ‡∏Ç‡πâ‡∏≤‡πÑ‡∏õ‡πÉ‡∏ô imageObjList ‡∏ã‡∏∂‡πà‡∏á‡πÄ‡∏õ‡πá‡∏ô array ‡∏Ç‡∏≠‡∏á image object
 			 for (var i = 0; i < arguments.length; i++) {
 				  imageObjList = imageObjList.concat(arguments[i][0].data);
 			 }
  
-			 // ∂È“Õ¬“°‰¥È√Ÿª·§Ë 10 √Ÿª uncomment ∫√√∑—¥π’È
+			 // ‡∏ñ‡πâ‡∏≤‡∏≠‡∏¢‡∏≤‡∏Å‡πÑ‡∏î‡πâ‡∏£‡∏π‡∏õ‡πÅ‡∏Ñ‡πà 10 ‡∏£‡∏π‡∏õ uncomment ‡∏ö‡∏£‡∏£‡∏ó‡∏±‡∏î‡∏ô‡∏µ‡πâ
 			 // imageObjList = imageObjList.slice(0, 10);
  
-    // ‡µ√’¬¡ image div  ”À√—∫„ Ë√Ÿª 
+    // ‡πÄ‡∏ï‡∏£‡∏µ‡∏¢‡∏° image div ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÉ‡∏™‡πà‡∏£‡∏π‡∏õ 
     var imageContainer = $('<div>');
  
-			 // π”·µË≈– image object ¡“À“§Ë“∑’Ë‡√“µÈÕß°“√
+			 // ‡∏ô‡∏≥‡πÅ‡∏ï‡πà‡∏•‡∏∞ image object ‡∏°‡∏≤‡∏´‡∏≤‡∏Ñ‡πà‡∏≤‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏≤‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£
 			 for (var j = 0; j < imageObjList.length; j++) {
  
-    // À“‡«≈“∑’Ë user  √È“ß¿“æ¢÷Èπ¡“ 
+    // ‡∏´‡∏≤‡πÄ‡∏ß‡∏•‡∏≤‡∏ó‡∏µ‡πà user ‡∏™‡∏£‡πâ‡∏≤‡∏á‡∏†‡∏≤‡∏û‡∏Ç‡∏∂‡πâ‡∏ô‡∏°‡∏≤ 
 			 var time = new Date(parseInt(imageObjList[j].created_time) * 1000);
 			 var fullDate = time.getDate() + '-' + time.getMonth() + '-' 
         + time.getFullYear();
  
-    // append ‡¢È“‰ª„π element ∑’Ë‡√“µÈÕß°“√
+    // append ‡πÄ‡∏Ç‡πâ‡∏≤‡πÑ‡∏õ‡πÉ‡∏ô element ‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏≤‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£
     imageContainer.append('<div class="ig-div"><a href="' 
       + imageObjList[j].link + '"><img src="' 
       + imageObjList[j].images.low_resolution.url + '" /></a>' 
@@ -100,13 +100,13 @@ document.write(lat);
  
     $('#image-area').html(imageContainer);
  
-    // ‰¡ËµÈÕß· ¥ß error message ·≈È«
+    // ‡πÑ‡∏°‡πà‡∏ï‡πâ‡∏≠‡∏á‡πÅ‡∏™‡∏î‡∏á error message ‡πÅ‡∏•‡πâ‡∏ß
     clearTimeout(instagramRequestTimeout);
  
     });
 });
  
-	 // ∂È“¡’ª—≠À“Õ–‰√„π AJAX call „ÀÈ· ¥ß error message
+	 // ‡∏ñ‡πâ‡∏≤‡∏°‡∏µ‡∏õ‡∏±‡∏ç‡∏´‡∏≤‡∏≠‡∏∞‡πÑ‡∏£‡πÉ‡∏ô AJAX call ‡πÉ‡∏´‡πâ‡πÅ‡∏™‡∏î‡∏á error message
 	 var instagramRequestTimeout = setTimeout(function() {
 		  infoBox.removeClass('bg-info').addClass('bg-danger').text("Fail to get instagram resources");
 	}, 8000);
