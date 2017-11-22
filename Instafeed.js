@@ -40,8 +40,7 @@ document.write(lat);
   // ที่เราต้อง call ในครั้งที่สอง
 		for (var i = 0; i < data.data.length; i++) {
 		// เตรียม url จาก location_id
-			var targetURL = 'https://api.instagram.com/v1/locations/' 
-       + data.data[i].id + '/media/recent?access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa';
+			var targetURL = 'https://api.instagram.com/v1/locations/search?lat=12.614550&lng=99.954041&distance=100&access_token=178469114.7a4821e.e644fdfb85cf4d8d9c71150764bab0fa';
 			locationURLList.push(targetURL);
 		}
  
@@ -77,7 +76,7 @@ document.write(lat);
 			 }
  
 			 // ถ้าอยากได้รูปแค่ 10 รูป uncomment บรรทัดนี้
-			 // imageObjList = imageObjList.slice(0, 10);
+			 imageObjList = imageObjList.slice(0, 10);
  
     // เตรียม image div สำหรับใส่รูป 
     var imageContainer = $('<div>');
